@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './screens/meal_detail_screen.dart';
 import './screens/category_meals_screen.dart';
 import './screens/categories_screen.dart';
 
@@ -34,6 +35,27 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (ctx) => CategoriesScreen(),
         CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
+        MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
+      },
+      //for the routenames that are generated dynamically.
+      /*  onGenerateRoute: (settings) {
+           print(settings.arguments);
+          if(settings.name == '/meal-dart'){
+            return .... ;//the page name..
+          }
+          else if(settings.name == '/someting-else'){
+            return ..... ;//the page name
+          }
+
+          return MaterialPageRoute(builder: (ctx) => CategoriesScreen(),
+        );
+      }, */
+
+      //this module is used to reutrn page esp which dont exist.
+      onUnknownRoute: (settings) {
+        return MaterialPageRoute(
+          builder: (ctx) => CategoriesScreen(),
+        );
       },
     );
   }
