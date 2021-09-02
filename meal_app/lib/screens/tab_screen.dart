@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/main_drawer.dart';
 import './faviourite_screen.dart';
 import './categories_screen.dart';
 
@@ -55,8 +56,11 @@ class _TabScreenState extends State<TabScreen> {
     //this is to retrun the tab on the bottom
     return Scaffold(
       appBar: AppBar(
-          // title: Text(_pages[_selectedPageIndex]['title']),
-          ),
+        title: Text('Deli MeAls'),
+      ),
+      drawer: Drawer(
+        child: MainDrawer(),
+      ),
       body: _pages[_selectedPageIndex]['page'],
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
